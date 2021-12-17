@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+.container{
+      /* background:url(blob.jpg) no-repeat,white;  */
+      /* background: radial-gradient( rgb(167, 45, 45)kyblue);  */
+    
+    background:url( https://wonderfulengineering.com/wp-content/uploads/2017/05/Cartoon-Wallpapers-for-kids-2.jpg) no-repeat; 
+    background-size: cover;
+    height: 100vh; 
+    width: 1000px;
+    height: 1000px;
+    padding:20px;
+    
+ background-color: skyblue;
+}
+
+/* justify-content-between align-items-right */
+.flex-nav {
+    display: flex; 
+    
+    align-items: right;
+    height: 80px;
+    width: 100%;
+    /* background:burlywood; */
+}
+
+.bx{
+    /* background-color:gray
+     */
+}
+.flexbx{
+    display: flex;
+    
+}
+
+
+.one ul li {
+font-size: 30px;
+color: white;
+display: inline-block;
+}
+.dropdown-menu:hover{
+
+background: skyblue;
+
+}
+.flex-nav_right{
+    display: flex; 
+    justify-content: right;
+    /* display: inline-block; */
+    
+}
+.center{
+align-content: center;
+}
