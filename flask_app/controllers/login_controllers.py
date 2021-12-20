@@ -13,7 +13,6 @@ bcrypt = Bcrypt(app)
 
 @app.route('/')              
 def home():
-    
     return render_template('login_form.html')
 
 @app.route('/register', methods=['POST'])  

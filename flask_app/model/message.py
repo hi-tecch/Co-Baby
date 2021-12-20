@@ -51,7 +51,6 @@ class Message:
         return messages
         
         
-
     @classmethod
     def create_one_message(cls,data):          
         query = "Insert INTO messages (message,freinds_id) VALUES(%(message)s,%(freinds_id)s);"

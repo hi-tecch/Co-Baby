@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>Gallery</title>
+</head>
+<body>
+    <div id="wrapper">
+        <div class="text-center" >
+            {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
+            {% if messages %}                            <!-- check if there are any messages -->
+                {% for message in messages %}            <!-- loop through the messages -->
+                    <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
+                {% endfor %}
+            {% endif %}
+            {% endwith %}
+        </div>
+        <h1>Welcome to gallery {{user.First_name}} {{user.Last_name}}!</h1>
+        <form method="post" action="/upload_file" enctype='multipart/form-data'>
+            <input type="hidden" name="username" value="{{user.First_name}} {{user.Last_name}}">
+            <input type="hidden"> 
+            <ul>
+                <li>
+                    <textarea name="text" id="text" cols="50" rows="2" placeholder="tell us more about the picture:" ></textarea>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <input type="file" name="file">
+                    <input type="submit" value="Upload picture">
+                </li>
+            </ul>
+        </form>
+        <div id="pics">
+            {% if imgs%}
+            {% for img in imgs %}
+                <img src= "/static/gallery/{{img.filename}}"alt="img images"  width="400" height="400">
+                <p class="text-light" > Post it by:{{img.username}} 
+                    {% if session['user_id'] == img.user_id %}
+                    <a class="btn btn-primary" href="/delete/img/{{img.id}}">delete img</a>
+                    {% endif %}
+                </p>
+                </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
+
