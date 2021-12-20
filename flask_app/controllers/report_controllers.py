@@ -1,6 +1,6 @@
 from flask_app import app
 from flask import Flask, render_template,redirect,request,session
-from flask_app.model import login, report ,kid_model
+from flask_app.model import login, report ,kid_model, message
 # from flask_app.model import report
 # from flask_app.model import kid_model
 from flask import flash
@@ -81,9 +81,7 @@ def new():
     # if not 'user_id' in session:
     #         return redirect('/')
     
-  
-
-    return render_template('create_one.html')
+    return render_template('Add_schedule.html')
 
 
 @app.route('/create',methods=['POST'])
@@ -174,6 +172,52 @@ def showmonth():
 
 
 
+
+@app.route('/message')
+def messaging():
+    # if not 'user_id' in session:
+    #         return redirect('/')
+    message_recieved =message.Message.show_all_messages()
+    # return (message_recieved)
+    return render_template('show_messages.html',message_recieved=message_recieved)
+
+
+
+# create a new schedulee
+@app.route('/add_message')
+def new_message():
+    # if not 'user_id' in session:
+    #         return redirect('/')
+    
+  
+
+    return render_template('show_messages.html')
+
+
+@app.route('/create_message',methods=['POST'])
+def create_message():
+    # if not 'user_id' in session:
+    #     return redirect('/')
+        
+    # if not report.Report.validate_create_one(request.form):#boolean and ausutme it is true
+    #     return redirect('/new')
+
+    id={
+    'id':session['user_id']
+    }
+    
+        
+   
+    data={
+    
+    'message' : request.form ['message'],
+    'freinds_id':session['user_id'] ,
+    
+    }
+   
+    message.Message.create_one_message(data)
+
+    return redirect('/message')
 
 
 

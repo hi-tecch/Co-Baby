@@ -42,7 +42,7 @@ class Schedule:
 #            flash("One or more events past due", "show")
 
     @classmethod
-    def show_all(cls,):       
+    def show_all(cls):       
             
         query = "SELECT * FROM schedule;"
         results = connectToMySQL(cls.db_name).query_db(query)
