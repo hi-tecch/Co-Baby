@@ -33,6 +33,14 @@ class Schedule:
 
 #show all 
 
+#THIS NEEDS ADDED TO THE SHOW CLASS METHOD FOR FUTURE SCHEDULE PAGE
+#        if(schedule_date > datetime.date(datetime.now())):
+#            flash("Please check future scheduled events", "show")
+
+#THIS NEEDS ADDED TO THE SHOW CLASS METHOD FOR PAST SCHEDULE PAGE
+#        if(schedule_date < datetime.date(datetime.now())):
+#            flash("One or more events past due", "show")
+
     @classmethod
     def show_all(cls,):       
             
@@ -50,7 +58,7 @@ class Schedule:
         query = "Insert INTO schedule (start_datetime,end_datetime,comments,Freinds_id) VALUES(%(start_datetime)s,%(end_datetime)s,%(comments)s,%(Freinds_id)s);"
         return  connectToMySQL(cls.db_name).query_db(query,data)  
         
- 
+
     @classmethod
     def show_all_not_done(cls):     
         query = "select * from  schedule JOIN freinds on schedule.freinds_id=freinds.id WHERE schedule.comment <>'done' or ISNULL(comment);"
