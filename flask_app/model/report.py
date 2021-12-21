@@ -1,6 +1,7 @@
 
 from flask_app.config.mysqlconnection import connectToMySQL
 from flask import flash
+from datetime import datetime
 import re
 from flask_bcrypt import Bcrypt 
 from flask_app import app

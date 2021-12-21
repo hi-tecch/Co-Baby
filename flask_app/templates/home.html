@@ -10,16 +10,19 @@
       <title>Dashboard</title>
    </head>
    <body>
-      {% with messages = get_flashed_messages() %}     
-                  {% if messages %}                            
-          {% for message in messages %}           
-          
-      <p>{{message}}</p>
-                        
-                  {% endfor %}
-      {% endif %}
-      {% endwith %}
       <div class='container'>
+         <div class="alert alert-danger alert-dismissible fade show" role="alert"><!--alerts user to check their scheduled events-->
+            {% with messages = get_flashed_messages(category_filter=['home']) %}
+               {% if messages %}
+                  {% for message in messages %}
+                     <strong>{{message}}</strong>
+                  {% endfor %}
+               {% endif %}
+            {% endwith %}
+            <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+            </button>
+         </div><!--end of alerts message-->
          <div  class='flex-nav'>
             <div class='one'>
                <ul class="nav nav-pills">
@@ -47,21 +50,18 @@
                      
                </ul>
             </div>
+            <div id="weather"> <!--MEANT AS A USEFUL TOOL FOR THE PARENT. CAN BE STYLED HOWEVER WE LIKE IF WANT TO KEEP IT-->
+               <h3>Dress For The Weather!</h3>
+               <p>Daily Forecast:</p>
+               <input type="text" name="city" oninput="getCity(this)" placeholder="enter city">
+               <button onclick="showCityAsync()">Submit</button>
+               <div id="apis">
+               </div>
+            </div>
             <div class='one' class='flex-nav_right'>
                <ul>
                   <li><a href="/logout"class="nav-link" > Logout</a></li>
                </ul>
-            </div>
-            <div id="weather"> <!--MEANT AS A USEFUL TOOL FOR THE PARENT. CAN BE STYLED HOWEVER WE LIKE IF WANT TO KEEP IT-->
-               <h3>Dress For The Weather!</h3>
-               <p>Enter City For Today's Forecast:</p>
-               <input type="text" name="city" oninput="getCity(this)">
-               <button onclick="showCityAsync()">Get Forecast</button>
-               <div id="apis">
-                  <p>High: </p>
-                  <p>Low: </p>
-                  <p>Weather: </p>
-               </div>
             </div>
          </div>
       </div>

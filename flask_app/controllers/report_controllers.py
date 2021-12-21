@@ -28,7 +28,7 @@ def homepage():
     
     session['user_id'] = the_user.id
     print(session['user_id'])
-    
+    flash("Please Check Your Past and Future Schedules", "home")
     return render_template('home.html',the_user=the_user)
 
 # profile will have personal info
