@@ -9,6 +9,7 @@ function getCity(element) { // this gets the usernames and stores in the variabl
 function makeCityInfo(data) { // allows us to create new HTML so we can display the API response on the page
 // our container for the API response. create the HTML elements inside specific to the reponse info we want to display.
     var spot =  `<div id="apis">
+                    <p>City: ${data.name}
                     <p>High: ${data.main.temp_max}</p>
                     <p>Low: ${data.main.temp_min}</p>
                     <p>Weather: ${data.weather[0].description}</p>
