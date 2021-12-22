@@ -55,3 +55,7 @@ class Message:
     def create_one_message(cls,data):          
         query = "Insert INTO messages (message,freinds_id) VALUES(%(message)s,%(freinds_id)s);"
         return  connectToMySQL(cls.db_name).query_db(query,data)  
+    @classmethod
+    def deleteMSG(cls,data):
+        query = "DELETE FROM messages WHERE id = %(MSG_id)s;"
+        return connectToMySQL(cls.db_name).query_db(query,data)

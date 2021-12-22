@@ -15,28 +15,38 @@
         <title>Show Messages</title>
     </head>
     <body>
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <h1> Welcome to the Message Chat Room</h1> 
+                <div class=''>
+                    <a href="/home" class="btn btn-primary hover" > Home</a> 
+                    <a href="/logout"class="btn btn-primary hover" > Logout</a>
+                </div>
+            </div>
         <div id="wrapper">
             <div id="menu">
-                <p class="welcome">Welcome, <b></b></p>
-                
-             
+
                 {%for i in message_recieved%}
+                <hr>
+                    <p> Msm: {{i.message}} </p>
+                    <p> Date: {{i.created_at}} </p>
+                    <p> Send by:  {{i.sender.First_name}} </p>
+                    {% if session['user_id'] ==  i.sender.id %}
+                    <a class="btn-sm btn-primary text-decoration-none mb-2" href="/delete/MSG/{{i.id}}"><strong>Delete MSG</strong></a>
+                    {% endif %}
+                    {%endfor%}
+
                 
-                <p> {{i.created_at}} |{{i.sender.First_name}} | {{i.message}}  </p>
-                {%endfor%}
-                
-           
-                
-                
-                <p class="logout"><a id="exit" href="/home">Exit Chat</a></p>
             </div>
  
             <div id="chatbox"></div>
  
             <form name="message" action="/create_message" method="post">
                 <input name="message" type="text" id="message" />
-                <input name="submitmsg" type="submit" id="submitmsg" value="Send" />
+                <input name="submitmsg" type="submit" id="submitmsg" value="Send" class="btn-sm btn-primary"/>
+                <a id="exit" href="/home" class="btn btn-warning text-primary"><strong>Exit Chat</strong></a>
             </form>
+        </div>
         </div>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script type="text/javascript">

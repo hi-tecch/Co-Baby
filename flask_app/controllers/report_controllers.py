@@ -175,29 +175,37 @@ def showmonth():
 
 @app.route('/message')
 def messaging():
-    # if not 'user_id' in session:
-    #         return redirect('/')
+    if not 'user_id' in session:
+            return redirect('/')
     message_recieved =message.Message.show_all_messages()
     # return (message_recieved)
     return render_template('show_messages.html',message_recieved=message_recieved)
 
 
+@app.route('/delete/MSG/<int:MSG_id>')
+def deleteMSG(MSG_id):
+    if not 'user_id' in session:
+            return redirect('/logout')
+    print("we are here in delete def")
+    data = {
+        'MSG_id':MSG_id
+    }
+    message.Message.deleteMSG(data)
+    return redirect('/message')
+
 
 # create a new schedulee
 @app.route('/add_message')
 def new_message():
-    # if not 'user_id' in session:
-    #         return redirect('/')
-    
-  
-
+    if not 'user_id' in session:
+            return redirect('/')
     return render_template('show_messages.html')
 
 
 @app.route('/create_message',methods=['POST'])
 def create_message():
-    # if not 'user_id' in session:
-    #     return redirect('/')
+    if not 'user_id' in session:
+        return redirect('/')
         
     # if not report.Report.validate_create_one(request.form):#boolean and ausutme it is true
     #     return redirect('/new')
