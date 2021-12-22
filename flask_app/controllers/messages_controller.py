@@ -13,12 +13,21 @@ bcrypt = Bcrypt(app)
 
 @app.route('/message')
 def messaging():
-    # if not 'user_id' in session:
-    #         return redirect('/')
+    if not 'user_id' in session:
+            return redirect('/logout')
     message_recieved =message.Message.show_all_messages
     return render_template('show_messages.html',message_recieved=message_recieved)
 
-
+@app.route('/delete/MSG/<int:MSG_id>')
+def deleteMSG(MSG_id):
+    if not 'user_id' in session:
+            return redirect('/logout')
+    print("we are here in delete def")
+    data = {
+        'MSG_id':MSG_id
+    }
+    message.Message.delete(data)
+    return redirect('/message')
 
 # # create a new schedulee
 # @app.route('/add_message')

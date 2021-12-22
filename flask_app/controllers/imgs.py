@@ -5,7 +5,7 @@ from flask_app.model.login import User
 import os, urllib.request, pathlib, datetime
 from werkzeug.utils import secure_filename
     
-UPLOAD_FOLDER = '/Users/Azaly/Desktop/Coding/AlgoProjects/Group/Co-Baby/flask_app/static/gallery'
+UPLOAD_FOLDER = '/Users/kriswork/Desktop/myProjects/GP/Co-Baby/flask_app/static/gallery'
 #  the path will need to be updated!!! it is not relative path
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -24,7 +24,6 @@ def gallery():
     data ={
         'id': session['user_id']
     }
-
     return render_template('gallery.html',user=User.get_one_by_id(data),imgs = Img.get_all())
 
 def allowed_file(filename):
@@ -33,8 +32,8 @@ def allowed_file(filename):
 
 @app.route('/upload_file', methods=['GET', 'POST'])
 def upload_file():
-    # if 'user_id' not in session:
-    #     return redirect('/logout')
+    if 'user_id' not in session:
+        return redirect('/logout')
     data ={ 
         "username": request.form['username'],
         "text": request.form['text'],
@@ -60,6 +59,7 @@ def upload_file():
                 'filename':filename
             }
             Img.file_typee(data)
+            print(UPLOAD_FOLDER)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             return redirect('/gallery')
     return redirect('/gallery')

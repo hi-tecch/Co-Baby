@@ -27,8 +27,14 @@
             <div id="menu">
 
                 {%for i in message_recieved%}
-                    <p> {{i.created_at}} | {{i.sender.First_name}} | {{i.message}}  </p>
-                {%endfor%}
+                <hr>
+                    <p> Msm: {{i.message}} </p>
+                    <p> Date: {{i.created_at}} </p>
+                    <p> Send by:  {{i.sender.First_name}} </p>
+                    {% if session['user_id'] ==  i.sender.id %}
+                    <a class="btn-sm btn-primary text-decoration-none mb-2" href="/delete/MSG/{{i.id}}"><strong>Delete MSG</strong></a>
+                    {% endif %}
+                    {%endfor%}
 
                 
             </div>
