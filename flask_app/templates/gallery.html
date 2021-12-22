@@ -41,7 +41,7 @@
             <div>
                 {% if imgs %}
                     {% for img in imgs %}
-                        <img src= "/static/gallery/{{img.filename}}"alt="img images"  width="150" height="150">
+                        <img src= "/static/{{img.filename}}"alt="img images"  width="150" height="150">
                         <p class="text-dark" > Post it by:{{img.username}} </p>
                         {% if session['user_id'] == img.user_id %}
                         <a class="btn-sm btn-primary text-decoration-none mb-2" href="/delete/img/{{img.id}}"><strong>Delete Image</strong></a>

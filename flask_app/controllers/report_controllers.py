@@ -96,13 +96,13 @@ def create():
     'id':session['user_id']
     }
     
-        
-   
+    
+
     data={
     
     'start_datetime' : request.form ['start_datetime'],
     'end_datetime' : request.form['end_datetime'],
-    'comments' : request.form['comments'],
+    'comment' : request.form['comment'],
     'Freinds_id':session['user_id'] ,
     
     }

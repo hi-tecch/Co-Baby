@@ -22,6 +22,7 @@ class Schedule:
         self.start_datetime = data['start_datetime']
         self.end_datetime = data['end_datetime']
         self.comments = data['comments']
+        self.comment = data['comment']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
         self.kids_id = data['kids_id']
@@ -56,7 +57,7 @@ class Schedule:
 
     @classmethod
     def create_one(cls,data):          
-        query = "Insert INTO schedule (start_datetime,end_datetime,comments,Freinds_id) VALUES(%(start_datetime)s,%(end_datetime)s,%(comments)s,%(Freinds_id)s);"
+        query = "Insert INTO schedule (start_datetime,end_datetime,comment,Freinds_id) VALUES(%(start_datetime)s,%(end_datetime)s,%(comment)s,%(Freinds_id)s);"
         return  connectToMySQL(cls.db_name).query_db(query,data)  
         
 
