@@ -1,8 +1,8 @@
 * {
     margin: 0;
     padding: 0;
-  }
-  
+}
+
 .container{
       /* background:url(blob.jpg) no-repeat,white;  */
       /* background: radial-gradient( rgb(167, 45, 45)kyblue);  */
@@ -14,7 +14,7 @@
     height: 1000px;
     padding:20px;
     
- background-color: skyblue;
+    background-color: skyblue;
 }
 
 /* justify-content-between align-items-right */

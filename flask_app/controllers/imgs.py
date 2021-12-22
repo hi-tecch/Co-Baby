@@ -5,7 +5,7 @@ from flask_app.model.login import User
 import os, urllib.request, pathlib, datetime
 from werkzeug.utils import secure_filename
     
-UPLOAD_FOLDER = '/Users/kriswork/Desktop/myProjects/GP/Co-Baby/flask_app/static/gallery'
+UPLOAD_FOLDER = '/Users/Azaly/Desktop/Coding/AlgoProjects/Group/Co-Baby/flask_app/static/gallery'
 #  the path will need to be updated!!! it is not relative path
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER

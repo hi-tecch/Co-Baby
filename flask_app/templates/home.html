@@ -10,7 +10,7 @@
       <title>Dashboard</title>
    </head>
    <body>
-      <div class='container'>
+      <div class="container">
          <div class="alert alert-danger alert-dismissible fade show" role="alert"><!--alerts user to check their scheduled events-->
             {% with messages = get_flashed_messages(category_filter=['home']) %}
                {% if messages %}
@@ -27,11 +27,11 @@
             <div class='one'>
                <ul class="nav nav-pills">
                   <li class="nav-item dropdown">
-                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Home</a>
-                     <ul class="dropdown-menu" class='hoverr' >
-                        <li><a class="dropdown-item" class='hover' href="/add_schedule">Add Schedules</a></li>
-                        <li><a class="dropdown-item" class='hover' href="/future_schedule">Future Schedule </a></li>
-                        <li><a class="dropdown-item" href="/Past_schedules" class='hover' >Past Schedule</a></li>
+                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Schedules</a>
+                     <ul class="dropdown-menu hover">
+                        <li><a class="dropdown-item hover" href="/add_schedule">Add Schedules</a></li>
+                        <li><a class="dropdown-item hover" href="/future_schedule">Future Schedule </a></li>
+                        <li><a class="dropdown-item hover" href="/Past_schedules">Past Schedule</a></li>
                         <li>
                            <hr class="dropdown-divider">
                         </li>
@@ -50,18 +50,18 @@
                      
                </ul>
             </div>
-            <div id="weather"> <!--MEANT AS A USEFUL TOOL FOR THE PARENT. CAN BE STYLED HOWEVER WE LIKE IF WANT TO KEEP IT-->
-               <h3>Dress For The Weather!</h3>
-               <p>Daily Forecast:</p>
-               <input type="text" name="city" oninput="getCity(this)" placeholder="enter city">
-               <button onclick="showCityAsync()">Submit</button>
-               <div id="apis">
-               </div>
-            </div>
             <div class='one' class='flex-nav_right'>
                <ul>
                   <li><a href="/logout"class="nav-link" > Logout</a></li>
                </ul>
+            </div>
+         </div>
+         <div id="weather"> <!--MEANT AS A USEFUL TOOL FOR THE PARENT. CAN BE STYLED HOWEVER WE LIKE IF WANT TO KEEP IT-->
+            <h3>Dress For The Weather!</h3>
+            <p><strong>Daily Forecast:</strong></p>
+            <input type="text" name="city" oninput="getCity(this)" placeholder="enter city">
+            <button onclick="showCityAsync()" class="btn-sm btn-primary">Submit</button>
+            <div id="apis">
             </div>
          </div>
       </div>

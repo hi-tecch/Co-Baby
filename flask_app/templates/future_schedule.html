@@ -18,15 +18,14 @@
     
 </head>
 <body>
-  
   <div class='container'>
-      <div  class='flex-nav_right'>
-  
-            <a href="/home" class="nav-link" > Home</a> 
-            <a href="/logout"class="nav-link" > Logout</a>
+    <div class="d-flex justify-content-between align-items-center">
+      <h1> Future Schedule </h1> 
+      <div class=''>
+          <a href="/home" class="btn btn-primary hover" > Home</a> 
+          <a href="/logout"class="btn btn-primary hover" > Logout</a>
       </div>
-         <h4 class='center'> Future Schedule</h4>  
-          
+    </div>
           <div class="container-sm">
               <table class="table table-hover">
               <form action="/update/done" method="post">
@@ -53,7 +52,7 @@
                   <thead>
                     <tr>
                       <th scope="col">#</th>
-                      <th scope="col">Freinds Fullname</th>
+                      <th scope="col">Friends Full Name</th>
                       <th scope="col">Month</th>
                       <th scope="col">Start Time</th>
                       <th scope="col">End Time </th>
