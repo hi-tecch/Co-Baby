@@ -17,26 +17,27 @@
       {% endif %}
       {% endwith %}
       <div class="container">
-         <div class="flexbx">
-            <div class="bx" class="card border-secondary mb-3" style="max-width: 18rem;">
-               <h2>Register</h2>
-               <div class="mb-3" class="container">
+         <h1 class="mb-5">Welcome, to the Child Care Organizer!</h1>
+         <div class="d-flex justify-content-center align-items-center">
+            <div class="form-group mx-5">
+               <h1>Register</h1>
+               <div class="mb-3">
                   <form action="/register" method='POST'>
                      <input type="hidden" name='id'>
-                     <label for="First_name" class="form-label">First Name:</label>
+                     <label for="First_name" class="form-control bg-transparent border-0"><strong>First Name:</strong></label>
                      <input type="text" name='First_name'>
-                     <label for="last_name" class="form-label">Last Name:</label>
+                     <label for="last_name" class="form-control bg-transparent border-0"><strong>Last Name:</strong></label>
                      <input type="text" name='Last_name'>
-                     <label for="zip_code" class="form-label">Zip_Code:</label>
+                     <label for="zip_code" class="form-control bg-transparent border-0"><strong>Zip Code:</strong></label>
                      <input type="text" name='zip_code'>
-                     <label for="email" class="form-label">Email:</label>
+                     <label for="email" class="form-control bg-transparent border-0"><strong>Email:</strong></label>
                      <input type="text" name='email'>
-                     <label for="password" class="form-label">Password:</label>
+                     <label for="password" class="form-control bg-transparent border-0"><strong>Password:</strong></label>
                      <input type="password" name='password'>
-                     <label for="confirm_password" class="form-label">Confirm Password:</label>
+                     <label for="confirm_password" class="form-control bg-transparent border-0"><strong>Confirm Password:</strong></label>
                      <input type="password" name='confirm_password'>
-                     <button type="submit" style="background-color:golden" class="btn btn-primary">Register</button>
                   </form>
+                  <button type="submit" class="btn btn-primary mt-3">Register</button>
                </div>
             </div>
             {% with messages = get_flashed_messages(category_filter=['login']) %}     <!-- declare a variable called messages -->
@@ -49,16 +50,16 @@
             {% endif %}
             {% endwith %}
             <div class="bx" class="card border-secondary mb-3" style="max-width: 18rem;">
-               <h2>Login</h2>
+               <h1>Login</h1>
                <div class="mb-3" class="container">
                   <form action="/login" method='POST'>
                      <input type="hidden" name='id'>
-                     <label for="email" class="form-label">Email:</label>
+                     <label for="email" class="form-control bg-transparent border-0"><strong>Email:</strong></label>
                      <input type="text" name='email'>
-                     <label for="password" class="form-label">Password:</label>
+                     <label for="password" class="form-control bg-transparent border-0"><strong>Password:</strong></label>
                      <input type="password" name='password'>       
-                     <button type="submit" style="background-color:golden" class="btn btn-primary">Login</button>
                   </form>
+                  <button type="submit" class="btn btn-primary mt-3">Login</button>
                </div>
             </div>
          </div>
