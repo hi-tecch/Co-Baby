@@ -102,7 +102,7 @@ def create():
     
     'start_datetime' : request.form ['start_datetime'],
     'end_datetime' : request.form['end_datetime'],
-    'comment' : request.form['comment'],
+    'comments' : request.form['comment'],
     'Freinds_id':session['user_id'] ,
     
     }
